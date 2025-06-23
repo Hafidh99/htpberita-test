@@ -23,7 +23,7 @@
             <li><a href="{{ route('news.all') }}" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Berita</a></li>
             <li><a href="https://htp.ac.id/" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Si???</a></li>
             <li><a href="" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Si???</a></li>
-            {{-- @foreach (\App\Models\NewsCategory::all() as $category)
+            {{-- @foreach (\App\Models\NewsCategory::all() as $category)a
             <li><a href="{{ route('news.category', $category->slug) }}" class="hover:text-primary">{{ $category->title }}</a></li>
             @endforeach --}}
           </ul>
