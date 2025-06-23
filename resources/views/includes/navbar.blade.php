@@ -21,8 +21,8 @@
             class="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
             <li><a href="{{ route('landing') }}" class="{{ request()->is('/') ? 'text-primary' : '' }} hover:text-gray-600">Beranda</a></li>
             <li><a href="{{ route('news.all') }}" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Berita</a></li>
-            <li><a href="https://htp.ac.id/" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Si???</a></li>
-            <li><a href="" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Si???</a></li>
+            <li><a href="hover:text-gray-600">Si???</a></li>
+            <li><a href="" class="hover:text-gray-600">Si???</a></li>
             {{-- @foreach (\App\Models\NewsCategory::all() as $category)a
             <li><a href="{{ route('news.category', $category->slug) }}" class="hover:text-primary">{{ $category->title }}</a></li>
             @endforeach --}}

@@ -33,9 +33,13 @@
                     </p>
                 </div>
             </a>
+            
         @empty
             <p class="text-center text-slate-500">Tidak ada berita tersedia.</p>
         @endforelse
+        <div class="mt-6">
+            {{ $allNews->links() }}
+        </div>
     </div>
 </div>
 @endsection
