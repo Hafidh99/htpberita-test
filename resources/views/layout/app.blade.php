@@ -2,11 +2,11 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@yield('title')</title>
-  <link href="{{ asset('assets/css/output.css') }}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title')</title>
+    <link href="{{ asset('assets/css/output.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -25,7 +25,8 @@
         <!-- Logo dan Deskripsi -->
         <div class="flex flex-col gap-2">
             <div class="flex items-center gap-2">
-                <img src="{{ asset('assets/img/Logo1.png') }}" alt="Logo" class="w-10">
+                <img src="{{ asset('assets/img/Logo1.png') }}" alt="Logo" class="w-10" 
+                style="width: 40px; height: 40px;">
                 <p class="text-xl font-bold">HTP Berita</p>
             </div>
             <p class="text-sm">Media informasi terpercaya seputar berita kampus, teknologi, dan gaya hidup.</p>
