@@ -15,7 +15,7 @@
                 </div>
                 <div class="relative z-10 mb-3" style="padding-left: 10px;">
                     {{-- <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3"> {{ $banner->news->newsCategory->title }} </div> --}}
-                    <p class="text-3xl font-semibold text-white mt-1">{{ $slideshow->title }}</p>
+                    {{-- <p class="text-3xl font-semibold text-white mt-1">{{ $slideshow->title }}</p> --}}
                     <div class="flex items-center gap-1 mt-1">
                     {{-- <img src="{{ asset('storage/' . $banner->news->author->avatar) }}" alt="" class="w-5 h-5 rounded-full">
                     <p class="text-white text-xs">{{ $banner->news->author->name }}</p> --}}
