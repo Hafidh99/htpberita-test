@@ -4,7 +4,7 @@ const swiper = new Swiper('.mySwiper', {
   centeredSlides: true,
   loop: true,
   autoplay: {
-    delay: 3000,
+    delay: 6000,
     disableOnInteraction: false,
   },
   navigation: {
