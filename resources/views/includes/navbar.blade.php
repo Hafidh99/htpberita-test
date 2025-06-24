@@ -3,7 +3,7 @@
         <!-- Logo dan Menu -->
         <div class="flex items-center justify-between w-full lg:w-auto">
           <!-- Logo -->
-          <a href="index.html">
+          <a href="{{ route('landing') }}" class="flex items-center gap-2">
             <div class="flex items-center gap-2">
               <img src="{{ asset('assets/img/Logo1.png') }}" alt="Logo" class="w-8 lg:w-10">
               <p class="text-lg lg:text-xl font-bold">HTP Berita</p>

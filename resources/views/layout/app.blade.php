@@ -35,9 +35,9 @@
         <!-- Info Kontak -->
         <div class="flex flex-col gap-2">
             <h3 class="text-lg font-semibold">Kontak</h3>
-            <p>Email: <a href="mailto:htp@ac.id" class="hover:underline">htp@ac.id</a></p>
-            <p>Telepon: 0812-3456-7890</p>
-            <p>Alamat: Jl. Teknologi No. 99, Jakarta</p>
+            <p>Email: htp@ac.id</a></p>
+            <p>Telepon: 0811-7561-5130</p>
+            <p>Alamat: Jl. Mustafa Sari, Pekanbaru</p>
         </div>
 
         <!-- Navigasi Footer -->
