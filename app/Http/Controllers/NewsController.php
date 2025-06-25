@@ -25,7 +25,7 @@ class NewsController extends Controller
 
     public function allNews()
     {
-        $allNews = News::with('newsCategory')->latest()->paginate(10);
+        $allNews = News::with('newsCategory')->latest()->paginate(2);
 
 
         return view('pages.semua-berita', compact('allNews'));
