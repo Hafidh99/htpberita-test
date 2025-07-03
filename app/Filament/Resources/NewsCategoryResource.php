@@ -28,10 +28,12 @@ class NewsCategoryResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->label('Judul Kategori')
                     ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(fn (?string $state, callable $set) => $set('slug', Str::slug($state))),
                 Forms\Components\Textarea::make('slug')
+                    ->label('Slug(auto isi)')
                     ->readonly()
             ]);
     }

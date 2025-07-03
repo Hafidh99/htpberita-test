@@ -24,8 +24,14 @@ class SlideshowResource extends Resource
     public static function form(Form $form): Form
     {
         return $form->schema([
-            Forms\Components\TextInput::make('title')->required(),
-            Forms\Components\FileUpload::make('image')->image()->directory('slideshows')->required(),
+            Forms\Components\TextInput::make('title')
+                ->label('Judul')
+                ->required(),
+            Forms\Components\FileUpload::make('image')
+                ->label('Gambar')
+                ->image()
+                ->directory('slideshows')
+                ->required(),
         ]); 
     }
 

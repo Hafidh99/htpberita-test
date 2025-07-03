@@ -27,13 +27,17 @@ class AuthorResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Nama Penulis')
                     ->required(),
                 Forms\Components\TextInput::make('username')
+                    ->label('Username')
                     ->required(),
                 Forms\Components\FileUpload::make('avatar')
+                    ->label('Gambar Profil')
                     ->image()
                     ->required(),
                 Forms\Components\Textarea::make('bio')
+                    ->label('Bio')
                     ->required(),
             ]);
     }

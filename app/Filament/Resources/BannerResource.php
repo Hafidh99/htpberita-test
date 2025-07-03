@@ -26,6 +26,7 @@ class BannerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('news_id')
+                    ->label('Judul Banner')
                     ->relationship('news', 'title')
                     ->required(),
                     
