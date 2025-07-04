@@ -4,6 +4,8 @@ namespace App\Filament\Editor\Resources;
 
 use App\Filament\Editor\Resources\NewsResource\Pages;
 use App\Models\News; 
+use App\Models\NewsCategory;
+
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,24 +30,20 @@ class NewsResource extends Resource
     {
         return $form
             ->schema([
-                // Field Author bisa kita kunci juga, agar otomatis terisi nama editor yg login
-                Forms\Components\Select::make('author_id')
+                Forms\Components\TextInput::make('author_name') 
                     ->label('Nama Penulis')
-                    ->relationship('author', 'name')
-                    ->default(auth()->id()) // <-- Otomatis pilih user yg login
-                    ->disabled() // <-- Kunci field ini
-                    ->required()
-                    ->dehydrated(),
-                
-                // Field Kategori Berita kita kunci sesuai kategori editor
-                Forms\Components\Select::make('news_category_id')
+                    ->default(auth()->user()->name)
+                    ->disabled()
+                    ->dehydrated(false),
+                Forms\Components\TextInput::make('category_name') 
                     ->label('Kategori Berita')
-                    ->relationship('newscategory', 'title')
-                    ->default(Auth::user()->news_category_id) // <-- Otomatis pilih kategori user
-                    ->disabled() // <-- Kunci field ini
-                    ->required()
-                    ->dehydrated(),
-
+                    ->default(function () {
+                        
+                        $category = NewsCategory::find(auth()->user()->news_category_id);
+                        return $category ? $category->title : 'Tidak ada kategori';
+                    })
+                    ->disabled()
+                    ->dehydrated(false),
                 Forms\Components\TextInput::make('title')
                     ->label('Judul')
                     ->required()
@@ -66,28 +64,27 @@ class NewsResource extends Resource
             ]);
     }
 
-    // 4. MODIFIKASI BAGIAN TABLE
+
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                // Kolomnya bisa sama atau disederhanakan
                 Tables\Columns\TextColumn::make('author.name')->label('Author'),
                 Tables\Columns\TextColumn::make('title')->label('title'),
                 Tables\Columns\ImageColumn::make('thumbnail')->label('Thumbnail'),
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->label('Created At'),
             ])
             ->filters([
-                // Filter berdasarkan kategori tidak lagi relevan di sini karena data sudah terfilter otomatis
+                
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-                // Tables\Actions\DeleteAction::make(), // <-- Hapus atau beri komentar pada Aksi Delete
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    // Tables\Actions\DeleteBulkAction::make(), // <-- Hapus atau beri komentar pada Bulk Delete
+                    // Tables\Actions\DeleteBulkAction::make(), 
                 ]),
             ]);
     }
