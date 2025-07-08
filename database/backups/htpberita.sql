@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2025 at 09:48 AM
+-- Generation Time: Jul 04, 2025 at 10:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `authors` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `news_category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `avatar` varchar(255) NOT NULL,
@@ -41,9 +42,17 @@ CREATE TABLE `authors` (
 -- Dumping data for table `authors`
 --
 
-INSERT INTO `authors` (`id`, `name`, `username`, `avatar`, `bio`, `created_at`, `updated_at`) VALUES
-(1, 'Hafidh', 'izumi', '01JY0X8RJ5KBXKQVCR35BS2RBM.jpg', 'test drive', '2025-06-17 23:26:42', '2025-06-17 23:57:49'),
-(3, 'Amelia', 'amel', '01JY343Z350CF8EXCVD1FBB25P.png', 'amelll', '2025-06-18 20:36:00', '2025-06-18 20:36:00');
+INSERT INTO `authors` (`id`, `news_category_id`, `name`, `username`, `avatar`, `bio`, `created_at`, `updated_at`) VALUES
+(1, 1, 'S1 - Kesehatan Masyarakat', 'S1 - Kesehatan Masyarakat', '01JZ9RDNBK0XC65B2KPZQCBS0J.png', '-', '2025-07-03 20:41:58', '2025-07-03 20:41:58'),
+(2, 2, 'S1 - Teknik Informatika', 'S1 - Teknik Informatika', '01JZ9RFBYTFAC6BVCRSF6YMPA3.png', '-', '2025-07-03 20:42:54', '2025-07-03 20:42:54'),
+(3, 3, 'S2 - Kesehatan Masyarakat', 'S2 - Kesehatan Masyarakat ', '01JZ9RGR6YEPSZW0ZKXC016Z80.png', '-', '2025-07-03 20:43:39', '2025-07-03 20:43:39'),
+(4, 4, 'S1 - Kebidanan', 'S1 - Kebidanan', '01JZ9RJE0MMNS2YY5EEKHEVWFW.png', '-', '2025-07-03 20:44:34', '2025-07-03 20:44:34'),
+(5, 5, 'S1 - Sistem Informasi', 'S1 - Sistem Informasi', '01JZ9RMFZ2024CXXZQ7BP4KDAW.png', '-', '2025-07-03 20:45:42', '2025-07-03 20:45:42'),
+(6, 6, 'S1 - Keperawatan', 'S1 - Keperawatan', '01JZ9S07MH7BCSKTEGEWZFFN40.png', '-', '2025-07-03 20:52:07', '2025-07-03 20:52:07'),
+(7, 7, 'S1 - ilmu Hukum', 'S1 - ilmu Hukum', '01JZ9RP13989GQTMHB41VH734V.png', '-', '2025-07-03 20:46:32', '2025-07-03 20:46:32'),
+(8, 8, 'S1 - Komunikasi', 'S1 - Komunikasi', '01JZ9RQC34M83SHP44CAZ65ZYC.png', '-', '2025-07-03 20:47:16', '2025-07-03 20:47:16'),
+(9, 9, 'D4 - Manajemen Informasi Kesehatan', 'D4 - Manajemen Informasi Kesehatan', '01JZ9RRN9NTT5VE16S9F3CDHB7.png', '-', '2025-07-03 20:47:58', '2025-07-03 20:47:58'),
+(10, 10, 'D3 - Rekam Medis', 'D3 - Rekam Medis', '01JZ9RT4F8EP42YNQS66R212ZY.png', '-', '2025-07-03 20:48:47', '2025-07-03 20:48:47');
 
 -- --------------------------------------------------------
 
@@ -57,14 +66,6 @@ CREATE TABLE `banners` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `banners`
---
-
-INSERT INTO `banners` (`id`, `news_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2025-06-18 19:34:37', '2025-06-18 19:34:37'),
-(2, 2, '2025-06-18 20:40:37', '2025-06-18 20:40:37');
 
 -- --------------------------------------------------------
 
@@ -83,10 +84,18 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('htpberita_cache_da4b9237bacccdf19c0760cab7aec4a8359010b0', 'i:1;', 1750664866),
-('htpberita_cache_da4b9237bacccdf19c0760cab7aec4a8359010b0:timer', 'i:1750664866;', 1750664866),
-('htpberita_cache_livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1750656446),
-('htpberita_cache_livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1750656446;', 1750656446);
+('htpberita_cache_1b6453892473a467d07372d45eb05abc2031647a', 'i:2;', 1751604541),
+('htpberita_cache_1b6453892473a467d07372d45eb05abc2031647a:timer', 'i:1751604541;', 1751604541),
+('htpberita_cache_356a192b7913b04c54574d18c28d46e6395428ab', 'i:1;', 1751601183),
+('htpberita_cache_356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1751601183;', 1751601183),
+('htpberita_cache_77de68daecd823babbb58edb1c8e14d7106e83bb', 'i:1;', 1751603859),
+('htpberita_cache_77de68daecd823babbb58edb1c8e14d7106e83bb:timer', 'i:1751603859;', 1751603859),
+('htpberita_cache_ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4', 'i:1;', 1751604668),
+('htpberita_cache_ac3478d69a3c81fa62e60f5c3696165a4e5e6ac4:timer', 'i:1751604668;', 1751604668),
+('htpberita_cache_da4b9237bacccdf19c0760cab7aec4a8359010b0', 'i:1;', 1751602092),
+('htpberita_cache_da4b9237bacccdf19c0760cab7aec4a8359010b0:timer', 'i:1751602092;', 1751602092),
+('htpberita_cache_livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3', 'i:1;', 1751604730),
+('htpberita_cache_livewire-rate-limiter:a17961fa74e9275d529f489537f179c05d50c2f3:timer', 'i:1751604730;', 1751604730);
 
 -- --------------------------------------------------------
 
@@ -175,8 +184,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2025_06_17_064531_create_news_categories_table', 1),
 (6, '2025_06_17_064909_create_news_table', 1),
 (7, '2025_06_17_070450_create_banners_table', 1),
-(8, '2025_06_19_041226_add_views_to_news_table', 2),
-(9, '2025_06_23_040202_create_slideshows_table', 3);
+(8, '2025_06_19_041226_add_views_to_news_table', 1),
+(9, '2025_06_23_040202_create_slideshows_table', 1),
+(10, '2025_07_03_045535_add_role_and_category_to_users_table', 1),
+(11, '2025_07_04_041825_add_news_category_id_to_authors_table', 2);
 
 -- --------------------------------------------------------
 
@@ -202,10 +213,11 @@ CREATE TABLE `news` (
 --
 
 INSERT INTO `news` (`id`, `author_id`, `news_category_id`, `title`, `slug`, `thumbnail`, `content`, `created_at`, `updated_at`, `views`) VALUES
-(1, 1, 1, 'Fakultas Kesehatan', 'fakultas-kesehatan', '01JY104PQQZA50H0B073J1NCTT.png', '<p>Fakultas di HTP salah satunya adalah fakultas kesehatan</p>', '2025-06-18 00:48:01', '2025-06-22 20:46:40', 8),
-(2, 3, 3, 'fakultas komputer', 'fakultas-komputer', '01JY34BD8A36TBZ9C9CMHDV04E.png', '<p>berita ini adalah sebuah berita</p>', '2025-06-18 20:40:04', '2025-06-19 20:15:32', 7),
-(3, 1, 1, 'HDMI', 'hdmi', '01JY3J1BV53WCYQJGFYH2XNQJM.png', '<h2>Hallo</h2>', '2025-06-19 00:39:15', '2025-06-22 20:31:18', 7),
-(4, 3, 1, 'Kshtn 123', 'kshtn-123', '01JY5HJ5QPTJBJ3DBJWH5BRYMF.jpg', '<p>kshtn 11</p>', '2025-06-19 19:09:26', '2025-06-19 19:09:26', 0);
+(1, 2, 1, 'Judulnya apa yaa', 'judulnya-apa-yaa', '01JZ9SN04C4FE4KAKAQZTP9Z7Q.png', '<p>Ayam aja ini mah</p>', '2025-07-03 21:03:27', '2025-07-03 21:37:18', 2),
+(2, 2, 1, 'Kesehatan Masyarakat', 'kesehatan-masyarakat', '01JZ9SVZKSD9TE545CT9M0QCMW.jpg', '<p>Kucing 1</p>', '2025-07-03 21:07:16', '2025-07-03 21:07:16', 0),
+(3, 3, 2, 'Teknik Informatika', 'teknik-informatika', '01JZ9VHWMNJXGVTYPJT20TZYAJ.jpg', '<p>Kucing 2</p>', '2025-07-03 21:36:42', '2025-07-03 21:37:03', 1),
+(5, 4, 3, 'Kesehatan Masyarakat s2', 'kesehatan-masyarakat-s2', '01JZ9W7ZJM1KKP326C12ZY2T7S.jpg', '<p>kucingg</p>', '2025-07-03 21:48:46', '2025-07-03 21:48:46', 0),
+(6, 5, 4, 'Kebidanann', 'kebidanann', '01JZ9WAPY4QWTQ2B9WW3NSD8RP.jpg', '<p>Uji coba&nbsp;</p>', '2025-07-03 21:50:16', '2025-07-03 21:50:16', 0);
 
 -- --------------------------------------------------------
 
@@ -226,8 +238,16 @@ CREATE TABLE `news_categories` (
 --
 
 INSERT INTO `news_categories` (`id`, `title`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'kesehatan', 'kesehatan', '2025-06-18 00:20:18', '2025-06-18 00:24:09'),
-(3, 'Komputer', 'komputer', '2025-06-18 20:36:27', '2025-06-18 20:36:27');
+(1, 'S1 - Kesehatan Masyarakat', 's1-kesehatan-masyarakat', '2025-07-03 20:36:33', '2025-07-03 20:36:33'),
+(2, 'S1 - Teknik Informatika', 's1-teknik-informatika', '2025-07-03 20:36:50', '2025-07-03 20:36:50'),
+(3, 'S2 - Kesehatan Masyarakat', 's2-kesehatan-masyarakat', '2025-07-03 20:34:22', '2025-07-03 20:34:22'),
+(4, 'S1 - Kebidanan', 's1-kebidanan', '2025-07-03 20:36:38', '2025-07-03 20:36:38'),
+(5, 'S1 - Sistem Informasi', 's1-sistem-informasi', '2025-07-03 20:36:42', '2025-07-03 20:36:42'),
+(6, 'S1 - Keperawatan', 's1-keperawatan', '2025-07-03 20:51:05', '2025-07-03 20:51:05'),
+(7, 'S1 - ilmu Hukum', 's1-ilmu-hukum', '2025-07-03 20:37:00', '2025-07-03 20:37:00'),
+(8, 'S1 - Komunikasi', 's1-komunikasi', '2025-07-03 20:37:05', '2025-07-03 20:37:05'),
+(9, 'D4 - Manajemen Informasi Kesehatan', 'd4-manajemen-informasi-kesehatan', '2025-07-03 20:37:11', '2025-07-03 20:37:11'),
+(10, 'D3 - Rekam Medis', 'd3-rekam-medis', '2025-07-03 20:37:15', '2025-07-03 20:37:15');
 
 -- --------------------------------------------------------
 
@@ -256,13 +276,6 @@ CREATE TABLE `sessions` (
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `sessions`
---
-
-INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('vVkjA7asXV89mJ2Agp9XTrlKlCv8gQ0Zk0als4Vu', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'YTo3OntzOjY6Il90b2tlbiI7czo0MDoiTFVKSDM1SHdNS2FBTFVJYzBpaTN3TW5zdlpRa1VKWFdsUUxvRGRmNCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjA6e31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToyO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTIkZEVyeFdJVXRwTzQzT2VoYnNrWE1PLmFKOVpXSkF1aTVQMU84UDFSLmYudFZYTnJvOXBMclciO3M6ODoiZmlsYW1lbnQiO2E6MDp7fX0=', 1750664827);
-
 -- --------------------------------------------------------
 
 --
@@ -283,12 +296,13 @@ CREATE TABLE `slideshows` (
 --
 
 INSERT INTO `slideshows` (`id`, `title`, `image`, `news_id`, `created_at`, `updated_at`) VALUES
-(1, 'tes', 'slideshows/01JYDMD1S29GXKAE3A91P3DYX4.jpg', NULL, '2025-06-22 22:33:00', '2025-06-22 22:33:00'),
-(2, 'tes', 'slideshows/01JYDMEYXPQ40QZZS2R3ATVDR8.jpg', NULL, '2025-06-22 22:34:02', '2025-06-22 22:34:02'),
-(3, 'Ketawa', 'slideshows/01JYDVT49MKT22HK8JKEJXBV76.jpg', NULL, '2025-06-23 00:42:28', '2025-06-23 00:42:28'),
-(4, 'Meteor', 'slideshows/01JYDVZCQ0W2TT6DFA3NAQ6HRV.jpg', NULL, '2025-06-23 00:45:21', '2025-06-23 00:45:21'),
-(5, 'Kepala', 'slideshows/01JYDW0SSD0Z97G5MWS8JCNMYF.png', NULL, '2025-06-23 00:46:07', '2025-06-23 00:46:07'),
-(6, 'deep', 'slideshows/01JYDW23C77XP1RFQPGYVJ1E9D.png', NULL, '2025-06-23 00:46:49', '2025-06-23 00:46:49');
+(1, '1', 'slideshows/01JZ9PSH9MP4XK0A32KH6YG81P.jpg', NULL, '2025-07-03 20:13:30', '2025-07-03 20:13:30'),
+(2, '2', 'slideshows/01JZ9PV57HW638PTYFV9EVP7Y1.png', NULL, '2025-07-03 20:14:23', '2025-07-03 20:14:23'),
+(3, '3', 'slideshows/01JZ9PVMM78VCT6T3TMJWY3F52.png', NULL, '2025-07-03 20:14:39', '2025-07-03 20:14:39'),
+(4, '4', 'slideshows/01JZ9PWSVT3KT8H00R56JF2VV4.jpg', NULL, '2025-07-03 20:15:17', '2025-07-03 20:15:17'),
+(5, '5', 'slideshows/01JZ9PXN86KW04R186AZQCR5MC.jpg', NULL, '2025-07-03 20:15:45', '2025-07-03 20:15:45'),
+(6, '6', 'slideshows/01JZ9PY4DE5F83QRE7EBV25ETK.jpg', NULL, '2025-07-03 20:16:01', '2025-07-03 20:16:01'),
+(7, '7', 'slideshows/01JZ9PYM29XQ6XVW00YYF0S6TN.png', NULL, '2025-07-03 20:16:17', '2025-07-03 20:16:17');
 
 -- --------------------------------------------------------
 
@@ -302,6 +316,8 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'editor',
+  `news_category_id` bigint(20) UNSIGNED DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -311,9 +327,18 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@htp.ac.id', NULL, '123456', NULL, NULL, NULL),
-(2, 'admin', 'admin1@htp.ac.id', NULL, '$2y$12$dErxWIUtpO43OehbskXMO.aJ9ZWJAui5P1O8P1R.f.tVXNro9pLrW', NULL, '2025-06-17 23:25:48', '2025-06-17 23:25:48');
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `news_category_id`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Super Admin', 'admin@htp.ac.id', NULL, '$2y$12$jWysDRH4UXfw25RRzN6ni.LeQ5mWA0go6DX8cqawE.HKqY5O0LR5q', 'superadmin', NULL, NULL, '2025-07-03 19:33:33', '2025-07-03 19:33:33'),
+(2, 'Prodi Kesehatan Masyarakat', 'kesmas@htp.ac.id', NULL, '$2y$12$mJKZNubPwD8X6UxzF.2oyekRrxeciQI6la9oYtjA40OyqT02R4Tmu', 'editor', 1, NULL, '2025-07-03 19:34:08', '2025-07-03 19:34:08'),
+(3, 'Prodi T.Informatika', 'informatika@htp.ac.id', NULL, '$2y$12$946/d3O.mqIsxLzieEyOCu.VOiH3w4J0TWCjkmtQwmwXawCEsdDmy', 'editor', 2, NULL, '2025-07-03 19:35:08', '2025-07-03 19:35:08'),
+(4, 'S2 - Kesehatan Masyarakat', 'kesmasS2@htp.ac.id', NULL, '$2y$12$0Pk2tBSw0SV5Hvk0sSJXf.dTfY2/EE3yP69UrbX2iVeh4KF8Atnfe', 'editor', 3, NULL, '2025-07-03 21:38:47', '2025-07-03 21:38:47'),
+(5, 'S1 - Kebidanan', 'kebidanan@htp.ac.id', NULL, '$2y$12$M3VKtsKOC9qthjdFku4GZ.Hwe502/0uB56MDqU4pRNxdR9Mwc8L9i', 'editor', 4, NULL, '2025-07-03 21:39:29', '2025-07-03 21:39:29'),
+(6, 'S1 - Sistem Informasi', 'sisteminformasi@htp.ac.id', NULL, '$2y$12$c.vZiCeA.x2Noea7IA7YsOE.1WhlXu2HA1FpRaw6Jnh8aToMY3dsC', 'editor', 5, NULL, '2025-07-03 21:40:28', '2025-07-03 21:40:28'),
+(7, 'S1 - Keperawatan', 'keperawatan@htp.ac.id', NULL, '$2y$12$YvzSmKnXkwirsuy73v6nmOPS8WVWUSaf2voutjoVT6M2/L.ADytti', 'editor', 6, NULL, '2025-07-03 21:41:29', '2025-07-03 21:41:29'),
+(8, 'S1 - Ilmu Hukum', 'ilmuhukum@htp.ac.id', NULL, '$2y$12$d.YlcLNmU6GF8tw4nJC2XeQCnb77zwa2zBWQirGpnCEhj0jbQcc5G', 'editor', 7, NULL, '2025-07-03 21:42:22', '2025-07-03 21:42:22'),
+(9, 'S1 - Komunikasi', 'komunikasi@htp.ac.id', NULL, '$2y$12$WM/gq02fbJDLgNpBDfdkLOt4i66af34o7f.QYWr.g7mlTwKa.WlRW', 'editor', 8, NULL, '2025-07-03 21:43:12', '2025-07-03 21:43:12'),
+(10, 'D4 - Manajemen Informasi Kesehatan', 'manajemenik@htp.ac.id', NULL, '$2y$12$kFbmMjI3gzwiUsCqWJAPne30PawPDwgBhIJMpJFfAtWQJnboM87Qa', 'editor', 9, NULL, '2025-07-03 21:44:14', '2025-07-03 21:44:14'),
+(11, 'D3 - Rekam Medis', 'rekammedis@htp.ac.id', NULL, '$2y$12$YxDERx/lubKaM1WExFTxoOJGuqZaQGZQtrX24jJ1ZKvkJm4X776ru', 'editor', 10, NULL, '2025-07-03 21:45:03', '2025-07-03 21:45:03');
 
 --
 -- Indexes for dumped tables
@@ -323,7 +348,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- Indexes for table `authors`
 --
 ALTER TABLE `authors`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `authors_news_category_id_foreign` (`news_category_id`);
 
 --
 -- Indexes for table `banners`
@@ -409,7 +435,8 @@ ALTER TABLE `slideshows`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `users_news_category_id_foreign` (`news_category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -419,13 +446,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `banners`
 --
 ALTER TABLE `banners`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -443,41 +470,53 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `news_categories`
 --
 ALTER TABLE `news_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `slideshows`
 --
 ALTER TABLE `slideshows`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `authors`
+--
+ALTER TABLE `authors`
+  ADD CONSTRAINT `authors_news_category_id_foreign` FOREIGN KEY (`news_category_id`) REFERENCES `news_categories` (`id`) ON DELETE SET NULL;
+
+--
 -- Constraints for table `slideshows`
 --
 ALTER TABLE `slideshows`
   ADD CONSTRAINT `slideshows_news_id_foreign` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_news_category_id_foreign` FOREIGN KEY (`news_category_id`) REFERENCES `news_categories` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
