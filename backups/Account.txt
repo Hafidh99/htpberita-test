@@ -1,0 +1,16 @@
+Superadmin = admin1@htp.ac.id (123456)
+
+S1 - Kesehatan Masyarakat = kesmas@htp.ac.id (kesmas123)
+S1 - Teknik Informatika = proditi@htp.ac.id (informatika123)
+S2 - Kesehatan Masyarakat = kesmasS2@htp.ac.id (s2kesmas)
+S1 - Kebidanan = kebidanan@htp.ac.id (kebidanan99)
+S1 - Sistem Informasi = sisteminformasi@htp.ac.id (si12345)
+S1 - Keperawatan = keperawatan@htp.ac.id (s1keperawatan)
+S1 - Ilmu Hukum = ilmuhukum@htp.ac.id (ilmuhukum11)
+S1 - Komunikasi = komunikasi@htp.ac.id (komunikasi123)
+D4 - Manajemen Informasi Kesehatan = manajemenik@htp.ac.id (mik1234)
+D3 - Rekam Medis = rekammedis@htp.ac.id (rekam123)
+
+
+
+
