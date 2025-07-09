@@ -1,49 +1,73 @@
-    <div class="sticky top-0 z-50 flex justify-between py-5 px-4 lg:px-14 bg-white shadow-sm">
-      <div class="flex gap-10 w-full">
-        <!-- Logo dan Menu -->
-        <div class="flex items-center justify-between w-full lg:w-auto">
-          <!-- Logo -->
-          <a href="{{ route('landing') }}" class="flex items-center gap-2">
-            <div class="flex items-center gap-2">
-              <img src="{{ asset('assets/img/Logo1.png') }}" alt="Logo" class="w-8 lg:w-10">
-              <p class="text-lg lg:text-xl font-bold">HTP Berita</p>
+<header>
+    <nav class="topbar1 navbar navbar-default" id="top-nav1">
+        <div class="container">
+            <div class="logo-image1">
+                {{-- Ganti dengan path logo Anda --}}
+                <a href="#"><img src="{{ asset('assets/images/hotel-booking/350x150.png') }}" alt="logo" class="img-responsive" /></a>
             </div>
-          </a>
-          <button class="lg:hidden text-primary text-2xl focus:outline-none" id="menu-toggle">
-            ☰
-          </button>
-        </div>
+            <div class="logo1-image1">
+                {{-- Ganti dengan path logo Anda versi kecil --}}
+                <a href="#"><img src="{{ asset('assets/images/hotel-booking/150x50.png') }}" alt="logo-small" class="img-responsive" /></a>
+            </div>
 
-        <!-- Menu Naviga  si -->
-        <div id="menu"
-          class="hidden lg:flex flex-col lg:flex-row lg:items-center lg:gap-10 w-full lg:w-auto mt-5 lg:mt-0">
-          <ul
-            class="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
-            <li><a href="{{ route('landing') }}" class="{{ request()->is('/') ? 'text-primary' : '' }} hover:text-gray-600">Beranda</a></li>
-            <li><a href="{{ route('news.all') }}" class="{{ request()->is('semua-berita') ? 'text-primary' : '' }} hover:text-gray-600">Berita</a></li>
-            <li><a href="https://siakadm.htp.ac.id/" class="hover:text-gray-600">Sistem Akademik</a></li>
-            <li><a href="https://spmb.htp.ac.id/authspmb/view/" class="hover:text-gray-600">Penerimaan Mahasiswa Baru</a></li>
-            {{-- @foreach (\App\Models\NewsCategory::all() as $category)a
-            <li><a href="{{ route('news.category', $category->slug) }}" class="hover:text-primary">{{ $category->title }}</a></li>
-            @endforeach --}}
-          </ul>
+            <div class="navbar-right">
+                <div class="nav">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="collapse navbar-collapse">
+                            <div class="menu1-div">
+                                <ul class="content-ul menu1-address">
+                                    <li><img src="{{ asset('assets/images/hotel-booking/40x40x1.png') }}" alt="phone" /></li>
+                                    <li>
+                                        {{-- Ganti dengan nomor telepon Anda --}}
+                                        <p class="letter-spacing">1-800-987-543</p>
+                                        <p class="letter-spacing">1-765-987-234</p>
+                                    </li>
+                                </ul>
+                                <ul class="content-ul menu1-address">
+                                    <li><img src="{{ asset('assets/images/hotel-booking/40x40x2.png') }}" alt="email" /></li>
+                                    <li>
+                                         {{-- Ganti dengan email Anda --}}
+                                        <p class="letter-spacing"><a href="#">login@domain.com</a> </p>
+                                        <p class="letter-spacing"><a href="#">website@domain.com</a> </p>
+                                    </li>
+                                </ul>
+                                <div class="menu-booknow btn1-div">
+                                    <a href="#" class="btn btn-1">Book Now</a>
+                                </div>
+                            </div>
+                            <ul class="nav navbar-nav menu1-ul" id="menu_1">
+                                {{-- Nanti Anda bisa ganti href="#" dengan route('nama-route') --}}
+                                <li class="menu">
+                                    <a href="#home" class="booking-pagescroll letter-spacing font-weight600">HOME</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="#about" class="booking-pagescroll letter-spacing font-weight600">ABOUT</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="#rooms" class="booking-pagescroll letter-spacing font-weight600">ROOMS</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="#restaurant" class="booking-pagescroll letter-spacing font-weight600">RESTAURANT</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="#bar" class="booking-pagescroll letter-spacing font-weight600">NIGHT BAR</a>
+                                </li>
+                                <li class="menu">
+                                    <a href="#contact" class="booking-pagescroll letter-spacing font-weight600">CONTACT US</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      {{-- <!-- Search dan Login -->
-      <div class="hidden lg:flex items-center gap-2 mt-4 lg:mt-0 w-full lg:w-auto relative">
-        <div class="relative w-full lg:w-auto">
-          <input type="text" placeholder="Cari berita..."
-            class="border border-slate-300 rounded-full px-4 py-2 pl-8 w-full text-sm font-normal lg:w-auto focus:outline-none focus:ring-primary focus:border-primary"
-            id="searchInput" />
-          <!-- Icon Search -->
-          <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-            <img src="{{ asset('/assets/img/search.png') }}" alt="search" class="w-4">
-          </span>
-        </div>
-        <a href="login.html"
-          class="bg-primary px-8 py-2 rounded-full text-white font-semibold h-fit text-sm lg:text-base">
-          Masuk
-        </a> --}}
-      </div>
-    </div>
+    </nav>
+</header>

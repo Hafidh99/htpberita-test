@@ -19,8 +19,8 @@ class LandingController extends Controller
         $banners = Banner::all();
         $featuredNews = News::orderBy('views', 'desc')->take(5)->get();
         $latestNews  = News::with(['newsCategory', 'author'])->orderBy('created_at', 'desc')->take(4)->get();
-        $slideshows = Slideshow::with('news')->orderBy('created_at', 'desc')->take(5)->get();
-
+        $slideshows = Slideshow::orderBy('created_at', 'desc')->take(5)->get();
+        
 
         return view('pages.landing', compact('banners', 'featuredNews', 'latestNews','slideshows'));
     }

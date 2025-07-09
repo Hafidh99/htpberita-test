@@ -1,106 +1,163 @@
 @extends('layout.app')
 
-@section('title', 'HTP Berita')
+@section('title', 'Selamat Datang di Hotel & Resort Kami')
+
 @section('content')
-        <!-- swiper -->
-        <div class="swiper mySwiper mt-9">
+
+    {{-- ====================================================================== --}}
+    {{-- BAGIAN 1: SLIDESHOW TANPA RELASI NEWS (FINAL)                         --}}
+    {{-- ====================================================================== --}}
+    <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-            @foreach ($slideshows as $slideshow)
-            <div class="swiper-slide">
-            {{-- <a href="{{ route('news.show' , $banner->news->slug)}}" class="block"> --}}
-                <div class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden"
-                style="background-image: url('{{ asset('storage/' . $slideshow->image) }}')">
-                <div
-                    class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
-                </div>
-                <div class="relative z-10 mb-3" style="padding-left: 10px;">
-                    {{-- <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3"> {{ $banner->news->newsCategory->title }} </div> --}}
-                    {{-- <p class="text-3xl font-semibold text-white mt-1">{{ $slideshow->title }}</p> --}}
-                    <div class="flex items-center gap-1 mt-1">
-                    {{-- <img src="{{ asset('storage/' . $banner->news->author->avatar) }}" alt="" class="w-5 h-5 rounded-full">
-                    <p class="text-white text-xs">{{ $banner->news->author->name }}</p> --}}
-                    </div>
-                </div>
-                </div>
-            </a>
-            </div>
-            @endforeach
-        </div>
-        </div>
-
-        
-        <!-- Berita Unggulan -->
-        <div class="flex flex-col px-14 mt-10 ">
-        <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
             
-            <div class="font-bold text-2xl text-center md:text-left">
-            <p>Berita Unggulan</p>
-            <p>Untuk Kamu</p>
-            </div>
-        </div>
-        <div class="grid sm:grid-cols-1 gap-5 lg:grid-cols-4">
-            @foreach ($featuredNews as $news)
-            <a href="{{ route('news.show' , $news->slug) }}">
-                <div class="relative border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out" style="height: 100%">
-                    <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute z-10">
-                        {{ $news->newsCategory->title }}
+            @forelse ($slideshows as $slide)
+                <div class="swiper-slide">
+                    {{-- GAMBAR: Langsung dari kolom 'image' di tabel slideshows --}}
+                    <div class="header-bgimage-1 bgimage-property" style="background-image: url('{{ asset('storage/' . $slide->image) }}');">
+                        <div class="container heading-ff-1">
+                            <div class="col-sm-12 header-div-1 heading-padding-1 text-center">
+                            </div>
+                        </div>
                     </div>
-                    <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->title }}" class="w-full rounded-xl mb-3" style="height: 150px; witdh: 80px; object-fit: cover;">
-                    <p class="font-bold text-base mb-1">{{ \Illuminate\Support\Str::limit($news->title, 60) }}</p>
-                    <p class="text-slate-400">{{ \Carbon\Carbon::parse($news->created_at)->translatedFormat('d F Y') }}</p>
                 </div>
-            </a>
-            @endforeach
-        </div>
-
-        </div>
-
-        <!-- Berita Terbaru -->
-        <div class="flex flex-col px-4 md:px-10 lg:px-14 mt-10">
-        <div class="flex flex-col md:flex-row justify-between items-center w-full mb-6">
-            <div class="font-bold text-2xl text-center md:text-left">
-            <p>Berita Terbaru</p>
-            </div>
-            <a href="{{ route('news.all') }}"
-            class="bg-primary px-5 py-2 rounded-full text-white font-semibold mt-4 md:mt-0 h-fit">
-            Lihat Semua
-            </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-5">
-            <!-- Berita Utama -->
-            @php
-                $firstNews = $latestNews->first();
-                $otherNews = $latestNews->slice(1);
-            @endphp
-            <div class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-                <a href="{{ route('news.show' , $firstNews->slug) }}">
-                    <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
-                        {{ $firstNews->newsCategory->title }}
+            @empty
+                <div class="swiper-slide">
+                    <div class="header-bgimage-1 bgimage-property">
+                        <div class="container heading-ff-1">
+                            <div class="col-sm-12 header-div-1 heading-padding-1 text-center">
+                                <h1>Tidak Ada Data Slideshow</h1>
+                            </div>
+                        </div>
                     </div>
-                    <img src="{{ asset('storage/' . $firstNews->thumbnail) }}" alt="berita1" class="rounded-2xl w-full h-auto object-cover" style="height: 300px; width: 100%; object-fit: cover;">
-                    <p class="font-bold text-xl mt-3">{{ $firstNews->title }}</p>
-                    <p class="text-slate-400 text-base mt-1">{!! \Str::limit($firstNews->content, 100) !!}</p>
-                    <p class="text-slate-400 text-base mt-1">{{ $firstNews->created_at }}</p>
-                </a>
+                </div>
+            @endforelse
+
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    
+
+    {{-- ====================================================================== --}}
+    {{-- BAGIAN 2: BERITA UTAMA / WELCOME SECTION                                --}}
+    {{-- Menggantikan bagian 'Berita Terbaru' utama Anda.                      --}}
+    {{-- Kita gunakan komponen 'Welcome Resort' dari template.                  --}}
+    {{-- ====================================================================== --}}
+    @if(isset($latestNews) && $latestNews->count() > 0)
+        @php
+            $firstNews = $latestNews->first();
+            $otherNews = $latestNews->slice(1);
+        @endphp
+        <section class="section-1-bg section-padding" id="about">
+            <div class="container heading-ff-1">
+                <div class="row">
+                    <div class="col-md-6 section-bottom-space20">
+                        {{-- Mengambil gambar dari berita utama Anda --}}
+                        <a href="{{ route('news.show' , $firstNews->slug) }}">
+                            <img src="{{ asset('storage/' . $firstNews->thumbnail) }}" alt="{{ $firstNews->title }}" class="img-responsive"/>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        {{-- Mengambil judul dan konten dari berita utama Anda --}}
+                        <h3>{{ $firstNews->title }}</h3>
+                        <p class="content-top-space">{!! \Str::limit($firstNews->content, 250) !!}</p>
+                        <div class="btn-top-space btn1-div">
+                            <a href="{{ route('news.show' , $firstNews->slug) }}" class="btn btn-1">Read More</a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+    @endif
 
 
-            <!-- Berita 1 -->
-            @foreach ($otherNews as $newsItem)
-            <a href="{{ route('news.show' , $newsItem->slug) }}"
-            class="relative col-span-5 flex flex-col h-fit md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-            <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm">
-                {{ $newsItem->newsCategory->title }}</div>
-            <img src="{{ asset('storage/' . $newsItem->thumbnail) }}" alt="berita2" class="rounded-xl md:max-h-48" style="width: 240px; height: 100px; object-fit: cover;">
-            <div class="mt-2 md:mt-0">
-                <p class="font-semibold text-lg">{{ $newsItem->title }}</p>
-                <p class="text-slate-400 mt-3 text-sm font-normal">
-                    {!! \Str::limit($newsItem->content ?? '', 100) !!}</p>
-                </p>
+    {{-- ====================================================================== --}}
+    {{-- BAGIAN 3: BERITA UNGGULAN (FEATURED NEWS)                               --}}
+    {{-- Menggantikan 'Berita Unggulan' Anda.                                  --}}
+    {{-- Kita gunakan komponen 'Rooms Offer' dari template, tapi kita modifikasi.--}}
+    {{-- ====================================================================== --}}
+    @if(isset($featuredNews) && $featuredNews->count() > 0)
+        <section class="section-2-bg section-padding" id="rooms">
+            <div class="container heading-ff-1">
+                <div class="heading-div-1 text-center">
+                    <h2>BERITA UNGGULAN</h2>
+                    <img src="{{ asset('assets/images/hotel-booking/underline-1.png') }}" alt="underline"/>
+                </div>
+                <div class="row">
+                    {{-- Loop melalui data $featuredNews Anda --}}
+                    @foreach ($featuredNews as $news)
+                        <div class="col-md-4 col-sm-6 section-bottom-space30">
+                            <div class="resort-accordion">
+                                <div class="accordion-main">
+                                    <div class="accordion-title" style="position: relative;">
+                                        <a href="{{ route('news.show' , $news->slug) }}">
+                                            <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="{{ $news->title }}" class="img-responsive" style="height: 250px; object-fit: cover;"/>
+                                        </a>
+                                        <div class="accordion-subtitle" style="width: 100%; bottom: 0; position: absolute; background: rgba(0,0,0,0.5); color: white;">
+                                            {{-- Ganti dengan judul berita --}}
+                                            <h4 style="margin-top: 10px;">{{ \Illuminate\Support\Str::limit($news->title, 40) }}</h4>
+                                            {{-- Ganti dengan kategori --}}
+                                            <p class="letter-spacing">{{ $news->newsCategory->title }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-            </a>
-            @endforeach
+        </section>
+    @endif
 
-            
+
+    {{-- ====================================================================== --}}
+    {{-- BAGIAN 4: BERITA TERBARU LAINNYA                                       --}}
+    {{-- Menggantikan daftar 'Berita Terbaru' Anda.                            --}}
+    {{-- Kita gunakan komponen 'Latest News' dari template.                     --}}
+    {{-- ====================================================================== --}}
+    @if(isset($otherNews) && $otherNews->count() > 0)
+        <section class="section-padding section-1-bg">
+            <div class="container heading-ff-1">
+                <div class="heading-div-1 text-center">
+                    <h2>BERITA TERBARU LAINNYA</h2>
+                    <img src="{{ asset('assets/images/hotel-booking/underline-1.png') }}" alt="underline"/>
+                </div>
+                @foreach ($otherNews->chunk(2) as $newsChunk)
+                    <div class="row news1-bg news1-space">
+                        @foreach ($newsChunk as $newsItem)
+                            <div class="col-sm-6">
+                                <div class="row" style="margin-bottom: 30px;">
+                                    <div class="col-xs-5 no-padding">
+                                        <a href="{{ route('news.show' , $newsItem->slug) }}">
+                                            <img src="{{ asset('storage/' . $newsItem->thumbnail) }}" alt="{{ $newsItem->title }}" class="img-responsive" />
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-7 news1-col-1" style="padding-left: 20px;">
+                                        <h4><a href="{{ route('news.show' , $newsItem->slug) }}">{{ $newsItem->title }}</a></h4>
+                                        <div class="news1-div">
+                                            <ul class="content-ul news-ul">
+                                                <li><a href="#"><img src="{{ asset('assets/images/hotel-booking/24x24x1.png') }}" alt="date"/></a></li>
+                                                <li><p class="letter-spacing font-weight600"><a href="#">{{ \Carbon\Carbon::parse($newsItem->created_at)->translatedFormat('d M, Y') }}</a></p></li>
+                                            </ul>
+                                            <ul class="content-ul news-ul news-ul-1">
+                                                <li><a href="#"><img src="{{ asset('assets/images/hotel-booking/24x24x2.png') }}" alt="category"/></a></li>
+                                                <li><p class="letter-spacing font-weight600"><a href="#">{{ $newsItem->newsCategory->title }}</a></p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
+                 <div class="btn-top-space text-center">
+                    <div class="btn1-div">
+                        <a href="{{ route('news.all') }}" class="btn btn-1">Lihat Semua Berita</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
 @endsection
