@@ -1,44 +1,31 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'HTP Berita')</title>
     
-    <title>@yield('title', 'Grand Hotel')</title>
-
-    {{-- ASET DARI TEMPLATE --}}
-    <link rel="shortcut icon" href="{{ asset('assets/images/hotel-booking/favicon.html') }}" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/bootstrap-theme.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/font-awesome/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/magnific/magnific-popup.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendor/datepicker.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom/style.css') }}">
-
-    {{-- CSS Swiper JS --}}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
 
-<body class="content-ff-1" data-spy="scroll" data-target=".navbar-fixed-top" data-offset="100">
+    <link rel="stylesheet" href="{{ asset('Assets/css/style.css') }}">
+
+</head>
+<body>
 
     @include('includes.navbar')
 
     <main>
         @yield('content')
     </main>
-
+    
     @include('includes.footer')
 
-    {{-- SCRIPT DARI TEMPLATE (YANG DIPERLUKAN) --}}
-    <script type="text/javascript" src="{{ asset('assets/js/vendor/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/vendor/bootstrap.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/vendor/magnific/jquery.magnific-popup.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/vendor/validate/jquery.validate.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/vendor/datepicker.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/custom/custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/custom-swiper.js') }}"></script>
+    
+    <script src="{{ asset('Assets/js/app.js') }}"></script>
 
 </body>
 </html>
