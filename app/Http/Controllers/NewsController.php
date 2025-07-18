@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Banner;
 use App\Models\NewsCategory;
+use App\Models\Slideshow;
 
 class NewsController extends Controller
 {
@@ -26,8 +27,8 @@ class NewsController extends Controller
     public function allNews()
     {
         $allNews = News::with('newsCategory')->latest()->paginate(10);
+        $slideshows = Slideshow::with('news')->orderBy('created_at', 'desc')->take(5)->get();
 
-
-        return view('pages.semua-berita', compact('allNews'));
+        return view('pages.semua-berita', compact('allNews', 'slideshows'));
     }
 }

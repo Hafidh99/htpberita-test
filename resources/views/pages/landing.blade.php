@@ -13,11 +13,11 @@
             <p class="animate">Sumber informasi terpercaya seputar kegiatan akademik, prestasi, dan event terbaru dari lingkungan UHT Pekanbaru.</p>
             <div class="btn-group">
                 <a href="{{ route('news.all') }}" class="btn btn-primary animate">Lihat Semua Berita</a>
-                <a href="#" class="btn btn-secondary animate">Tentang UHT</a>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="section">
     <div class="container">
@@ -62,7 +62,6 @@
             <p>Berita pilihan yang kami rekomendasikan khusus untuk Anda.</p>
         </div>
 
-        {{-- Grid untuk Berita Unggulan --}}
         <div class="news-grid">
             @foreach ($featuredNews as $news)
                 <div class="news-card">
@@ -94,7 +93,6 @@
             <p>Ikuti perkembangan dan informasi terkini dari kampus kami.</p>
         </div>
 
-        {{-- Grid untuk Berita Terbaru --}}
         <div class="news-grid">
             @foreach ($latestNews as $news)
                 <div class="news-card">
@@ -127,7 +125,6 @@
 
 @push('scripts')
 <script>
-    // Animation on Scroll
     function animateOnScroll() {
         const elements = document.querySelectorAll('.animate');
         
@@ -135,10 +132,7 @@
             const elementPosition = element.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
             
-            // Trigger animation when element is 100px from the bottom of the viewport
             if (elementPosition < windowHeight - 100) {
-                // Remove the 'animate' class and add a 'visible' class to trigger animation
-                // This ensures the animation only runs once
                 if (!element.classList.contains('visible')) {
                     element.classList.add('visible');
                 }
@@ -146,14 +140,11 @@
         });
     }
 
-    // Initial check on page load
     document.addEventListener('DOMContentLoaded', animateOnScroll);
     
-    // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
 </script>
 
-{{-- Sedikit CSS tambahan untuk animasi --}}
 <style>
     .animate {
         opacity: 0;

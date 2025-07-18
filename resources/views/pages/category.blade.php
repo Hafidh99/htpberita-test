@@ -13,7 +13,6 @@
     <section class="section">
         <div class="container">
             <div class="news-grid">
-                {{-- Loop untuk menampilkan berita dalam kategori ini --}}
                 @forelse ($news as $newsItem)
                     <div class="news-card">
                         <a href="{{ route('news.show', $newsItem->slug) }}" class="news-image-link">

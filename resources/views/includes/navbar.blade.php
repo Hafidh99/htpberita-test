@@ -6,7 +6,6 @@
                 <div class="logo-text">HTP Berita</div>
             </a>
             <ul class="nav-links">
-                {{-- Link navigasi dari website Anda --}}
                 <li><a href="{{ route('landing') }}">Beranda</a></li>
                 <li><a href="{{ route('news.all') }}">Berita</a></li>
                 <li><a href="https://siakadm.htp.ac.id/">Sistem Akademik</a></li>

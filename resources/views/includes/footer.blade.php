@@ -8,7 +8,6 @@
                 </div>
                 <p>Portal berita resmi seputar kegiatan, prestasi, dan informasi terkini dari lingkungan kampus.</p>
                 <div class="footer-social">
-                    {{-- Ganti '#' dengan link sosial media Anda --}}
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
@@ -28,7 +27,6 @@
 
             <div class="footer-contact">
                 <h3>Kontak Kami</h3>
-                {{-- Mengambil info dari footer lama Anda --}}
                 <p><i class="fas fa-map-marker-alt"></i> Jl. Jenderal Sudirman, Pekanbaru, Riau.</p>
                 <p><i class="fas fa-phone-alt"></i> +62 812 3456 7890</p>
                 <p><i class="fas fa-envelope"></i> info@htp.ac.id</p>

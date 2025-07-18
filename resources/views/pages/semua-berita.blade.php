@@ -3,6 +3,23 @@
 @section('title', 'Semua Berita')
 
 @section('content')
+
+    <!-- Hero Section / Slideshow -->
+    <section class="hero-slideshow">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                @foreach ($slideshows as $slideshow)
+                <div class="swiper-slide" style="background-image: url('{{ asset('storage/' . $slideshow->image) }}');">
+                    <div class="slide-overlay"></div>
+                </div>
+                @endforeach
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    
     <section class="page-header">
         <div class="container">
             <h1 class="page-header-title">Semua Berita</h1>
